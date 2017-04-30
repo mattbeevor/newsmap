@@ -1,0 +1,189 @@
+body {
+  font-family: Helvetica;
+  font-size: 100%;
+  overflow: hidden;
+}
+
+
+
+.articlereader {
+	margin-top: 3px;
+	padding: 5px;
+    width: 487px;
+    height: 447px;
+    overflow-y: scroll;
+}
+
+.reader {
+	padding: 5px;
+    width: 490px;
+    height: 405px;
+    overflow-y: scroll;
+}
+
+p {margin-top:.5em; margin-bottom:.5em;}
+
+
+h1 {
+	font-size: 25px;
+}
+
+ul li {
+	padding-top: "7px";
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
+.searchbox{
+    position: absolute;
+    right: 30px;
+    width: 300px;
+    padding: 10px;
+}
+
+.menubutton:hover{
+	color: lightgrey !important
+}
+
+.startsearch:hover ~ hr {
+  margin-left: 50% !important;
+  background: skyblue !important;
+}
+
+.startbrowse:hover ~ hr {
+  margin-left: 0% !important;
+  background: coral !important;
+}
+
+
+.search:hover ~ hr {
+  margin-left: 33% !important;
+  background: skyblue !important;
+}
+
+
+.article:hover ~ hr {
+  margin-left: 66% !important;
+  background: lightgreen !important;
+}
+
+.browse:hover ~ hr {
+  margin-left: 0% !important;
+  background: coral !important;
+}
+
+.top:hover ~ hr {
+  margin-left: 0% !important;
+  background: coral !important;
+}
+
+
+.world:hover ~ hr {
+  margin-left: 20% !important;
+  background: skyblue !important;
+}
+
+.uk:hover ~ hr {
+  margin-left: 40% !important;
+  background: lightgreen !important;
+}
+
+.politics:hover ~ hr {
+  margin-left: 60% !important;
+  background: yellow !important;
+}
+
+.sport:hover ~ hr {
+  margin-left: 80% !important;
+  background: lightpink !important;
+}
+
+
+hr {
+  padding: 0px;
+  margin: 0px;
+  height: .25rem;
+  width: 25%;
+  border: none;
+  transition: .1s ease-in-out;
+}
+
+
+
+.update {
+  color: #888888;
+  position:absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid #999999;
+  border-radius: 3px;
+}
+
+.node circle {
+  cursor: pointer
+}
+
+svg {
+	cursor: move
+}
+
+.nodediv{
+	text-shadow: -1px 0 #FFFFFF,0 1px #FFFFFF,1px 0 #FFFFFF,0 -1px #FFFFFF;
+	text-align: center;
+	pointer-events: none;
+
+}
+
+//.link {
+//  stroke: #cccccc;
+//  stroke-opacity: .6;
+//}
+
+.wrapper {width:470px; float:left}
+
+.wrapper:hover {background: WhiteSmoke}
+
+
+.left {
+	width:134px; 
+	float:left; 
+	height:90px;
+	padding:8px;
+	border-top:1px solid lightGrey;
+	cursor: pointer;
+}
+.right {
+	border-top:1px solid lightGrey;
+	float:left;
+	width:304px;
+	height:90px;
+	padding:8px;
+	text-align:center;
+	cursor: pointer;
+	}
+
+.example-enter {
+    opacity: 0;
+}
+.example-enter.example-enter-active {
+	opacity: 1;
+	transition: opacity 0.3s ease;
+	transition-property: transform, opacity;
+	transition-duration: 300;
+	transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+.example-leave {
+	opacity: 1;
+	transition-property: transform, opacity;
+	transition-duration: 300ms;
+	transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+.example-leave.example-leave-active {
+	opacity: 0;
+}
