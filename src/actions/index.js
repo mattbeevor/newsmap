@@ -47,7 +47,7 @@ export const displayText = (article) => ({
 })
 
 const getText = (node,k) => dispatch => {
-  var link = "http://content.guardianapis.com/".concat(String(node.id).concat("?show-fields=body%2Cthumbnail&api-key=".concat(k)))     
+  var link = "https://content.guardianapis.com/".concat(String(node.id).concat("?show-fields=body%2Cthumbnail&api-key=".concat(k)))     
   return fetch(link)
     .then(response => response.json())
     .then(json => dispatch(displayText(json)))
@@ -67,7 +67,7 @@ export const provideCategories=(output) => ({
 
 const getCategories = (k) => dispatch => {
   var categories=["uk","world","uk-news","politics","sport"]
-  var urls = categories.map(function(category){return "http://content.guardianapis.com/".concat(category.concat("?show-most-viewed=true&show-related=true&show-fields=thumbnail&api-key=".concat(k)))})
+  var urls = categories.map(function(category){return "https://content.guardianapis.com/".concat(category.concat("?show-most-viewed=true&show-related=true&show-fields=thumbnail&api-key=".concat(k)))})
   var output=[]
   const grabContent = url => fetch(url)
        .then(response => response.json())
@@ -117,7 +117,7 @@ export const rK = () => dispatch => {
 
 
 const initialStory = (searchitem,started,k) => dispatch => {
-  var link = "http://content.guardianapis.com/".concat(String(searchitem.id).concat("?show-related=true&show-fields=thumbnail&api-key=".concat(k)))     
+  var link = "https://content.guardianapis.com/".concat(String(searchitem.id).concat("?show-related=true&show-fields=thumbnail&api-key=".concat(k)))     
   return fetch(link)
     .then(response => response.json())
     .then(json => dispatch(updateData(json,started)))
@@ -147,7 +147,7 @@ export const receivedResults = (json) => ({
 })
 
 const doSearch = (searchterm,k) => dispatch => {
-  var link = "http://content.guardianapis.com/search?q=".concat(searchterm).concat("&show-fields=thumbnail&api-key=".concat(k))
+  var link = "https://content.guardianapis.com/search?q=".concat(searchterm).concat("&show-fields=thumbnail&api-key=".concat(k))
   return fetch(link)
     .then(response => response.json())
     .then(json => dispatch(receivedResults(json)))
@@ -220,7 +220,7 @@ export const receivedRelated = (output,node,nodes,links) =>  dispatch => {
 
 const requestRelated = (node, nodes, links, k ) => dispatch => {
   var urls=node.relatedarticles
-  urls = urls.map(function(url){return "http://content.guardianapis.com/".concat(url.concat("?show-related=true&show-fields=thumbnail&api-key=".concat(k)))     
+  urls = urls.map(function(url){return "https://content.guardianapis.com/".concat(url.concat("?show-related=true&show-fields=thumbnail&api-key=".concat(k)))     
  })
   var output=[]
   const grabContent = url => fetch(url)
