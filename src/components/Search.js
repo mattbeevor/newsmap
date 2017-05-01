@@ -32,7 +32,7 @@ class Search extends React.Component {
                 dispatch(closeWindow())
                 dispatch(selectArticle(e,started))
       }
-      return <Result thumbnail={e.fields.thumbnail} onClick={startfunction} key={e.id} webTitle={e.webTitle}/>
+      return <Result thumbnail={e.fields.thumbnail.replace("http:","https:")} onClick={startfunction} key={e.id} webTitle={e.webTitle}/>
     })
 
     var boxStyle={height:"36px"}

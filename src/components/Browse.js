@@ -55,7 +55,7 @@ var Browse = React.createClass({
           if(e.fields===undefined){
             e.fields={thumbnail:"empty"}
           }
-          return <Result onClick={startfunction} thumbnail={e.fields.thumbnail}  key={e.id} webTitle={e.webTitle}/>
+          return <Result onClick={startfunction} thumbnail={e.fields.thumbnail.replace("http:","https:")}  key={e.id} webTitle={e.webTitle}/>
         })
       }
 

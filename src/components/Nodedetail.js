@@ -67,7 +67,7 @@ var Nodedetail = React.createClass({
       function hoverFunction(){dispatch(hoverNode(node))}
       function unhoverFunction(){dispatch(stopHover())}
 
-      var imagelink=node.thumbnail
+      var imagelink=node.thumbnail.replace("http:","https:")
       this.image=null
       if(imagelink!=="none"){
         this.image=<image href={imagelink} height={radius*2} width={radius*3.31} ></image>

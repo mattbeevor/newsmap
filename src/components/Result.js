@@ -17,7 +17,7 @@ var Result = React.createClass({
 
       if(this.props.thumbnail===undefined){
         var thumbnail=<div style={blankStyle}></div>
-      }else{thumbnail=<img width="150" alt="" src={this.props.thumbnail}/>}
+      }else{thumbnail=<img width="150" alt="" src={this.props.thumbnail.replace("http:","https:")}/>}
 
       return (
         <div  onClick={this.props.onClick} className="wrapper">

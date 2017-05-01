@@ -62,7 +62,7 @@ function justifytitle(posts){
   var thumbnail="none"
   if(post.fields !== undefined){
     if(post.fields.thumbnail !== undefined){
-      thumbnail=post.fields.thumbnail
+      thumbnail=post.fields.thumbnail.replace("http:","https:")
     }
   }
   var id=post.id

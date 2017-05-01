@@ -11,7 +11,7 @@ var Article = React.createClass({
 
       if(article.fields !== undefined){
         if(article.fields.thumbnail !== undefined && article.fields.thumbnail !== "none" ){
-          var thumbnail=article.fields.thumbnail
+          var thumbnail=article.fields.thumbnail.replace("http:","https:")
           image =<img width="470" src={thumbnail} alt=""/>
         }
         if(article.fields.body !== undefined){

@@ -4,7 +4,7 @@ const windowSource=(state={x:Math.floor(window.innerWidth/2),y:Math.floor(window
       var width=window.innerWidth
       var height=window.innerHeight
       var centre={x:Math.floor(width/2),y:Math.floor(height/2)}
-      return centre
+      return {x:centre.x,y:centre.y}
     case "FROM_WINDOW":
       return {x:action.node.x,y:action.node.y}
     default:

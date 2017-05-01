@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { changeTab} from "../actions"
+import {reCentre, changeTab} from "../actions"
 
 var Tabs = React.createClass({
 
@@ -12,8 +12,8 @@ var Tabs = React.createClass({
       var browsetab=this.props.browsetab
 
 
-      function Browsetab(){dispatch(changeTab("browse",browsetab))}
-      function Searchtab(){dispatch(changeTab("search",browsetab))}
+      function Browsetab(){dispatch(changeTab("browse",browsetab)),dispatch(reCentre())}
+      function Searchtab(){dispatch(changeTab("search",browsetab)),dispatch(reCentre())}
       function Articletab(){dispatch(changeTab("article",browsetab))
       }
 
