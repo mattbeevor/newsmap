@@ -3,48 +3,48 @@ import _ from 'underscore'
 import {reCentre, openWindow, dragGraph,startDrag,endDrag} from "../actions"
 import Graphnode from "./Graphnode"
 
-var Graph = React.createClass({
+let Graph = React.createClass({
 
 
   render() {
 
-    var width = window.innerWidth
+    let width = window.innerWidth
 
-    var height= window.innerHeight
-    var offset = this.props.drag.livetranslation
-    var dispatch = this.props.dispatch
-    var nodes=this.props.update.nodes
-    var links=this.props.update.links
-    var nodestopass=this.props.update.nodes
-    var linkstopass=this.props.update.links
-    var hovernode=this.props.hover.node
-    var k=this.props.k
+    let height= window.innerHeight
+    let offset = this.props.drag.livetranslation
+    let dispatch = this.props.dispatch
+    let nodes=this.props.update.nodes
+    let links=this.props.update.links
+    let nodestopass=this.props.update.nodes
+    let linkstopass=this.props.update.links
+    let hovernode=this.props.hover.node
+    let k=this.props.k
     
-    var hovercheck=false
+    let hovercheck=false
 
 
     if( hovernode.id!=="empty" && nodes.length>1){
       hovercheck=true
-      var index= nodes.map(function(e){return e.id}).indexOf(hovernode.id)
-      var hovlist = [hovernode]
+      let index= nodes.map(function(e){return e.id}).indexOf(hovernode.id)
+      let hovlist = [hovernode]
       nodes=nodes.slice(0,index).concat(nodes.slice(index+1,nodes.length)).concat(hovlist)
     }
 
 
     nodes = _.map(nodes, (node) => {
-      return <Graphnode k={k} random={this.props.random} status={this.props.status}  key={node.id} linkstopass={linkstopass} nodestopass={nodestopass} dispatch={this.props.dispatch} node={node} hovercheck={hovercheck} offset={offset} hovernode={hovernode} isfetching={this.props.isfetching} firstlist={this.props.firstlist}/>
+      return <Graphnode k={k} status={this.props.status}  key={node.id} linkstopass={linkstopass} nodestopass={nodestopass} dispatch={this.props.dispatch} node={node} hovercheck={hovercheck} offset={offset} hovernode={hovernode} isfetching={this.props.isfetching} firstlist={this.props.firstlist}/>
     });
 
-    var linkcolor="coral"
+    let linkcolor="coral"
     if(hovernode.clicked===true){
       linkcolor="blue"
     }
 
     links = _.map(links, (link) => {
-      var colour="darkgrey"
-      var strokewidth=1.1
+      let colour="darkgrey"
+      let strokewidth=1.1
       if(hovercheck===true){
-        if(hovernode.id==link.sourcekey||hovernode.id==link.targetkey){
+        if(hovernode.id===link.sourcekey||hovernode.id===link.targetkey){
             colour=linkcolor
             strokewidth=1.9
         }
@@ -56,8 +56,8 @@ var Graph = React.createClass({
     });
 
 
-    var xstart=0
-    var ystart=0
+    let xstart=0
+    let ystart=0
 
 
 
@@ -78,7 +78,7 @@ var Graph = React.createClass({
       dispatch(dragGraph(e.clientX,e.clientY))
     }
 
-    var buttonStyle={
+    let buttonStyle={
       cursor: "pointer",
       position:"absolute",
       top: "0px",

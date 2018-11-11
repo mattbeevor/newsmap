@@ -2,7 +2,7 @@ import React from 'react'
 import {firstClicked,changeTab,selectNode,openWindow, clickCircle,pauseAnimation,hoverNode,stopHover} from "../actions"
 
 
-var Nodedetail = React.createClass({
+let Nodedetail = React.createClass({
 
     shouldComponentUpdate(){
       if(this.props.hovernode.id===this.props.node.id||this.props.status==="nodestoadd"){
@@ -13,20 +13,20 @@ var Nodedetail = React.createClass({
     },
 
     render() {
-      var radius=55
-      var node=this.props.node
-      var hovernode=this.props.hovernode
-      var dispatch=this.props.dispatch
-      var linkstopass=this.props.linkstopass
-      var nodestopass=this.props.nodestopass
-      var elevation=-1.5
-      var k =this.props.k
+      let radius=55
+      let node=this.props.node
+      let hovernode=this.props.hovernode
+      let dispatch=this.props.dispatch
+      let linkstopass=this.props.linkstopass
+      let nodestopass=this.props.nodestopass
+      let elevation=-1.5
+      let k =this.props.k
 
       if(node.clicked===true){
         elevation=0
       }
 
-      var ageshade="1"
+      let ageshade="1"
       if(node.age===3){
         ageshade="0.65"
       }
@@ -40,9 +40,9 @@ var Nodedetail = React.createClass({
         }
       }
 
-      var lines=node.lines
-      var patid="url(#Pattern"+String(node.key)+")"
-      var firstlist=this.props.firstlist
+      let lines=node.lines
+      let patid="url(#Pattern"+String(node.key)+")"
+      let firstlist=this.props.firstlist
 
       function clickFunction(){
         if(node.clicked===true){
@@ -67,11 +67,12 @@ var Nodedetail = React.createClass({
       function hoverFunction(){dispatch(hoverNode(node))}
       function unhoverFunction(){dispatch(stopHover())}
 
-      var imagelink=node.thumbnail.replace("http:","https:")
+      let imagelink=node.thumbnail.replace("http:","https:")
       this.image=null
+      let filler
       if(imagelink!=="none"){
         this.image=<image href={imagelink} height={radius*2} width={radius*3.31} ></image>
-        var filler = <pattern id={"Pattern"+String(node.key)} width="1" height="1" >
+        filler = <pattern id={"Pattern"+String(node.key)} width="1" height="1" >
         {this.image}
 	      </pattern>
       }else{

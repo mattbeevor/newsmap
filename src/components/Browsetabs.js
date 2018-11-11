@@ -1,12 +1,12 @@
 import React from 'react'
 import {changeTab} from "../actions"
 
-var Browsetabs = React.createClass({
+let Browsetabs = React.createClass({
 
     render() {
 
-      var displaytab=this.props.browsetab
-      var dispatch=this.props.dispatch
+      let displaytab=this.props.browsetab
+      let dispatch=this.props.dispatch
 
       function tabChange(browsetab){
         dispatch(changeTab("browse",browsetab))
@@ -18,10 +18,13 @@ var Browsetabs = React.createClass({
       function Politicstab(){tabChange("politics")}
       function Sporttab(){tabChange("sport")}
 
+      let background="coral"
+      let margin="0%"
+
       switch (displaytab){
         case "top":
-          var background="coral"
-          var margin="0%"
+          background="coral"
+          margin="0%"
           break
         case "world":
           background="skyblue"
@@ -44,14 +47,14 @@ var Browsetabs = React.createClass({
           margin="0%"
       }
 
-      var hrStyle = {
+      let hrStyle = {
         height: ".25rem",
         width: "20%",
         marginLeft: margin,
         background: background
       }
 
-      var aStyle = {
+      let aStyle = {
         cursor: "pointer",
         textAlign: "center",    
         textDecoration: "none",

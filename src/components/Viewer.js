@@ -5,7 +5,7 @@ import Browse from "./Browse"
 import Article from "./Article"
 
 
-var Viewer = React.createClass({
+let Viewer = React.createClass({
     render() {
       if(this.props.tab==="browse"){
         return (

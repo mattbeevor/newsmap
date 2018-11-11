@@ -1,31 +1,31 @@
 import React from 'react'
 import _ from 'underscore'
-import { closeWindow,createBrowse} from "../actions"
+import { closeWindow} from "../actions"
 import Tabs from "./Tabs"
 import Viewer from "./Viewer"
 import TweenMax from "gsap"
 
-var Window = React.createClass({
+let Window = React.createClass({
  
     
     componentWillEnter (callback) {
-      var centreX=window.innerWidth/2
-      var centreY=window.innerHeight/2
-      var windowstart=this.props.windowstart
+      let centreX=window.innerWidth/2
+      let centreY=window.innerHeight/2
+      let windowstart=this.props.windowstart
       const el = this.container;
       TweenMax.fromTo(el, 0.3, {scale:.2, y: windowstart.y-centreY, x:windowstart.x-centreX, opacity: 0}, {scale:1, y: 0, x:0, opacity: 1, onComplete: callback});
     },
 
     componentWillLeave (callback) {
-      var centreX=window.innerWidth/2
-      var centreY=window.innerHeight/2
-      var windowstart=this.props.windowstart
+      let centreX=window.innerWidth/2
+      let centreY=window.innerHeight/2
+      let windowstart=this.props.windowstart
       const el = this.container;
       TweenMax.fromTo(el, 0.3, {scale:1, y: 0, opacity: 1}, {scale:.2, y: windowstart.y-centreY, x:windowstart.x-centreX, opacity: 0, onComplete: callback});
     },
 
     render() {
-      var dispatch = this.props.dispatch
+      let dispatch = this.props.dispatch
       function backClick(){
         dispatch(closeWindow())
       }
@@ -48,7 +48,7 @@ var Window = React.createClass({
         transform: null
       }
 
-      var xStyle={
+      let xStyle={
         cursor: "pointer",
         position:"absolute",
         top: "0px",
@@ -63,9 +63,10 @@ var Window = React.createClass({
         userSelect:"none",
         fontSize:"120%"
       }
+      let closebutton
       if(this.props.articletab===true){
-      var closebutton=<div style={xStyle} onClick={backClick} className="material-icons">close</div>
-      }else{closebutton=null}
+      closebutton=<div style={xStyle} onClick={backClick} className="material-icons">close</div>
+      }
 
       return (
         <div style={modalStyle} onClick={clickWindow} ref={c => this.container = c}>

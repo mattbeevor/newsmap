@@ -2,14 +2,14 @@ import React from 'react'
 
 import {reCentre, changeTab} from "../actions"
 
-var Tabs = React.createClass({
+let Tabs = React.createClass({
 
     
 
     render() {
-      var dispatch=this.props.dispatch
-      var displaytab=this.props.tab
-      var browsetab=this.props.browsetab
+      let dispatch=this.props.dispatch
+      let displaytab=this.props.tab
+      let browsetab=this.props.browsetab
 
 
       function Browsetab(){dispatch(changeTab("browse",browsetab)),dispatch(reCentre())}
@@ -17,10 +17,13 @@ var Tabs = React.createClass({
       function Articletab(){dispatch(changeTab("article",browsetab))
       }
 
+      let background="coral"
+      let margin="0%"
+
       switch (displaytab){
         case "browse":
-          var background="coral"
-          var margin="0%"
+          background="coral"
+          margin="0%"
           break
         case "search":
           background="skyblue"
@@ -35,14 +38,14 @@ var Tabs = React.createClass({
           margin="0%"
       }
 
-      var hrStyle = {
+      let hrStyle = {
         height: ".25rem",
         width: "33%",
         marginLeft: margin,
         background: background
       }
 
-      var aStyle = {
+      let aStyle = {
         cursor: "pointer",        
         textDecoration: "none",
         width: "33%",
@@ -53,7 +56,7 @@ var Tabs = React.createClass({
         paddingBottom: "0.5rem",
       }
 
-      var listitems=
+      let listitems=
         <div>
         <ul>
           <li onClick={Browsetab} className="browse" style={aStyle}>BROWSE</li>
@@ -62,7 +65,7 @@ var Tabs = React.createClass({
           <hr style={hrStyle} />
         </ul>
         </div>
-      var articletab=this.props.articletab
+      let articletab=this.props.articletab
       if(articletab===false){
         aStyle.width="50%",
         hrStyle.width="50%"

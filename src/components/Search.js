@@ -16,17 +16,17 @@ class Search extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    var k =this.props.k
+    let k =this.props.k
     if(this.state.value.length>0){
       this.props.dispatch(submitSearch(this.state.value,k))
     }
   }
 
   render() {
-    var dispatch = this.props.dispatch
-    var search=this.props.search
-    var started=this.props.started
-    var searchresults=search.map(function(e){
+    let dispatch = this.props.dispatch
+    let search=this.props.search
+    let started=this.props.started
+    let searchresults=search.map(function(e){
       function startfunction(){
                 dispatch(reCentre())
                 dispatch(closeWindow())
@@ -35,9 +35,9 @@ class Search extends React.Component {
       return <Result thumbnail={e.fields.thumbnail.replace("http:","https:")} onClick={startfunction} key={e.id} webTitle={e.webTitle}/>
     })
 
-    var boxStyle={height:"36px"}
+    let boxStyle={height:"36px"}
         
-    var buttonStyle={
+    let buttonStyle={
       cursor: "pointer",
       position: "absolute",
       padding: "0",

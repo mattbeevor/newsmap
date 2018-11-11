@@ -1,22 +1,24 @@
 import React from 'react'
 
 
-var Result = React.createClass({
+let Result = React.createClass({
     
     render() {
 
-      var nointeraction = {
+      let nointeraction = {
           pointerEvents: "none",
       }
 
-      var blankStyle = {
+      let blankStyle = {
         height: "90px",
         width: "150px",
         background: "skyblue"
       }
 
+      let thumbnail
+
       if(this.props.thumbnail===undefined){
-        var thumbnail=<div style={blankStyle}></div>
+        thumbnail=<div style={blankStyle}></div>
       }else{thumbnail=<img width="150" alt="" src={this.props.thumbnail.replace("http:","https:")}/>}
 
       return (

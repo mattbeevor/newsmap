@@ -9,20 +9,17 @@ import TransitionGroup from 'react-addons-transition-group'
 
 
 
-var App = React.createClass({
-  
-  shouldComponentUpdate(){
-    return true
-  },
+let App = React.createClass({
+
 
   componentWillMount(){
-    var dispatch=this.props.dispatch
+    let dispatch=this.props.dispatch
     dispatch(rK())
   },
 
   render() {
 
-    var dispatch=this.props.dispatch
+    let dispatch=this.props.dispatch
 
 
     function windowClose() {
@@ -40,8 +37,8 @@ var App = React.createClass({
       background: 'rgba(100,100,100, 0.5)'
     }
 
-    var window=null
-    var backdrop=null
+    let window=null
+    let backdrop=null
 
     if(this.props.isWindowOpen===true){
       window= <Window key="kiosk" width="500" height="500" tab={this.props.tab} articletab={this.props.articletab}
@@ -66,22 +63,22 @@ var App = React.createClass({
 })
 
 const mapStateToProps = state => {
-  var update = state.animationUpdate
-  var isWindowOpen = state.popupWindow.isWindowOpen
-  var drag = state.graphDrag
-  var hover = state.hoverNode
-  var tab = state.currentTab.tab
-  var browsetab= state.currentTab.browsetab
-  var search = state.searchResults.results
-  var articles = state.categoryArticles.articles
-  var article = state.currentArticle.article
-  var articletab=state.articleTab.enabled
-  var added=state.nodeAdd.added
-  var windowstart=state.windowSource
-  var firstlist=state.firstRelated.list
-  var status=state.nodeStatus.status
-  var origNodes=state.origNodes
-  var k=state.fk.k
+  let update = state.animationUpdate
+  let isWindowOpen = state.popupWindow.isWindowOpen
+  let drag = state.graphDrag
+  let hover = state.hoverNode
+  let tab = state.currentTab.tab
+  let browsetab= state.currentTab.browsetab
+  let search = state.searchResults.results
+  let articles = state.categoryArticles.articles
+  let article = state.currentArticle.article
+  let articletab=state.articleTab.enabled
+  let added=state.nodeAdd.added
+  let windowstart=state.windowSource
+  let firstlist=state.firstRelated.list
+  let status=state.nodeStatus.status
+  let origNodes=state.origNodes
+  let k=state.fk.k
   return {
     origNodes,
     status,

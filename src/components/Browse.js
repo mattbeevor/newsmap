@@ -3,10 +3,10 @@ import {selectArticle,closeWindow, reCentre} from "../actions"
 import Result from "./Result"
 
 
-var Browse = React.createClass({
+let Browse = React.createClass({
 
     shouldComponentUpdate(){
-      var tab="this"
+      let tab="this"
       if(this.props.browsetab!==tab){
         tab=this.props.browsetab
         return true
@@ -16,12 +16,12 @@ var Browse = React.createClass({
     },
 
     render() {
-      var tab=this.props.browsetab
-      var articles=this.props.articles
-      var dispatch=this.props.dispatch
-      var articlelist="Loading articles..."
-      var started=this.props.started
-      var k =this.props.k
+      let tab=this.props.browsetab
+      let articles=this.props.articles
+      let dispatch=this.props.dispatch
+      let articlelist="Loading articles..."
+      let started=this.props.started
+      let k =this.props.k
 
 
 
@@ -43,7 +43,7 @@ var Browse = React.createClass({
         }
       }
       
-      var tabindex=getIndex(tab)
+      let tabindex=getIndex(tab)
 
       if(articles[tabindex]!==undefined){
         articlelist=articles[tabindex].map(function(e){
