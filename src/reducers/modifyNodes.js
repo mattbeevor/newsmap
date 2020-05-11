@@ -24,7 +24,7 @@ function addnode(rt, nodes,links,post){
     nodes=nodes.concat(newnode)
     var newlink = [{source: rt, target: newnode[0], sourcekey:rt.key, targetkey:newnode[0].key, key: linkkey(rt.key,newnode[0].key) }]
     var newlinks = links.concat(newlink);
-    post.relatedarticles.map(function(relatedpost){
+    post.relatedarticles.forEach(function(relatedpost){
       var relatedNodeposition=nodes.map(function(e){ return e.key}).indexOf(relatedpost)
       if(relatedNodeposition!==-1){
         var targetnode=nodes[relatedNodeposition]
@@ -99,6 +99,7 @@ var origin={x:0,y:0}
 var simulationoffset = {x:0,y:0}
 
 const graphDrag = (state = {livetranslation:{x:0,y:0},simulationoffset:{x:0,y:0}},action) => {
+
   var livetranslation = {x:0,y:0}
   switch (action.type){
     case "DRAG_APPLIED":
@@ -134,14 +135,14 @@ const graphDrag = (state = {livetranslation:{x:0,y:0},simulationoffset:{x:0,y:0}
 
 function cullOld(nodes,links){
   var retained=[]
-  nodes.map(function(e){
+  nodes.forEach(function(e){
     if(e.age<4){
       retained=retained.concat(e)
     }
   })
   var nodekeylist=retained.map(function(e){return e.id})
   var retainedlinks=[]
-  links.map(function(link){
+  links.forEach(function(link){
     if(nodekeylist.indexOf(link.sourcekey)!==-1&&nodekeylist.indexOf(link.targetkey)!==-1){
       retainedlinks=retainedlinks.concat(link)
     }
@@ -154,37 +155,38 @@ function cullOld(nodes,links){
 var lastnode="none"
 
 const nodeAdd = (state =  { nodes: ["empty"], links: [], node:{x:0,y:0},added:true}, action) => {
+  let justified,newnode
   switch (action.type) {
     case "START_ANIMATION":
-      var startnode={relatedContent:[], content:{id:action.startnode.id, webTitle:action.startnode.webTitle, fields:action.startnode.fields}}
-      var justified = justify([startnode])
-      var post = justified[0]
-      var newnode={clicked: false, age:0, x:centre.x, y:centre.y, vx:0, vy:0, relatedarticles:"firstnode",key:post.id, thumbnail:post.thumbnail,lines:post.lines,id:post.id,colour:post.colour }
+      let startnode={relatedContent:[], content:{id:action.startnode.id, webTitle:action.startnode.webTitle, fields:action.startnode.fields}}
+      justified = justify([startnode])
+      let post = justified[0]
+      newnode={clicked: false, age:0, x:centre.x, y:centre.y, vx:0, vy:0, relatedarticles:"firstnode",key:post.id, thumbnail:post.thumbnail,lines:post.lines,id:post.id,colour:post.colour }
       return {nodes:[newnode], links:[]}
     case "RE_START":
       lastnode="none"
-      var justified =justify([action.startnode.response])
+      justified =justify([action.startnode.response])
       post = justified[0]
-      var newnode={clicked: false, age:0, x:centre.x, y:centre.y, vx:0, vy:0,webTitle:post.webTitle, relatedarticles:post.relatedarticles, key:post.id, thumbnail:post.thumbnail,lines:post.lines,id:post.id,colour:post.colour }
+      newnode={clicked: false, age:0, x:centre.x, y:centre.y, vx:0, vy:0,webTitle:post.webTitle, relatedarticles:post.relatedarticles, key:post.id, thumbnail:post.thumbnail,lines:post.lines,id:post.id,colour:post.colour }
       return {nodes: [].concat(newnode), links: []}
     case "ADD_NODE":
-      var thisnode=action.node.id
+      let thisnode=action.node.id
       if(thisnode!==lastnode){
         lastnode=thisnode
-        var output=action.output
-        var justified =justify(output)
-        var nodes=clicked(action.node,action.nodes)
+        let output=action.output
+        justified =justify(output)
+        let nodes=clicked(action.node,action.nodes)
         if(justified.length>0){
           nodes.forEach(function(n) { n.age += 1});
         }
-        var links=action.links
-        var added=[]
-        for(var i=0;i<justified.length;i++){
+        let links=action.links
+        let added=[]
+        for(let i=0;i<justified.length;i++){
           added=addnode(action.node, nodes, links, justified[i])
           nodes=added.nodes
           links=added.links
         }
-        var rootindex = nodes.map(function(e) { return e.id; }).indexOf(action.node.id)
+        let rootindex = nodes.map(function(e) { return e.id; }).indexOf(action.node.id)
         nodes[rootindex].clicked=true
         if(justified.length>0){
           var culled=cullOld(nodes,links)

@@ -1,7 +1,7 @@
 import React from 'react'
 import {changeTab} from "../actions"
 
-let Browsetabs = React.createClass({
+export default class Browsetabs extends React.Component {
 
     render() {
 
@@ -78,8 +78,5 @@ let Browsetabs = React.createClass({
           </ul>
         </div>
       )
-    },
-
-  })
-
-export default Browsetabs
+    }
+  }

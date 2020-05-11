@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-let Article = React.createClass({
+export default class Article extends React.Component {
     render() {
       let article=this.props.article
       let image=null
@@ -39,7 +39,12 @@ let Article = React.createClass({
 
       let articletext=cleanArticle(body)
       function createMarkup() { return {__html: articletext}; };
-      
+
+
+
+
+
+
       return (
         <div className="articlereader">
           <div style={boxStyle}>
@@ -47,11 +52,9 @@ let Article = React.createClass({
           <p>{date}</p>
           </div>
           {image}
-          <div dangerouslySetInnerHTML={createMarkup()}>
-          </div>
+          <div dangerouslySetInnerHTML={createMarkup()}></div>
         </div>
       )
-    },
-  })
+    }
+  }
 
-export default Article

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-let Result = React.createClass({
+export default class Result extends React.Component {
     
     render() {
 
@@ -32,6 +32,4 @@ let Result = React.createClass({
         </div>
       )
     }
-  })
-
-export default Result
+  }

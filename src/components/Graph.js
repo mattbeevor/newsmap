@@ -3,7 +3,7 @@ import _ from 'underscore'
 import {reCentre, openWindow, dragGraph,startDrag,endDrag} from "../actions"
 import Graphnode from "./Graphnode"
 
-let Graph = React.createClass({
+export default class Graph extends React.Component {
 
 
   render() {
@@ -69,6 +69,7 @@ let Graph = React.createClass({
     }
 
     function finishDrag(e){
+      console.log("finishDrag")
       xstart=e.clientX
       ystart=e.clientY
       dispatch(endDrag(xstart,ystart))
@@ -113,6 +114,4 @@ let Graph = React.createClass({
       </div>
     );
   }
-});
-
-export default Graph
+}

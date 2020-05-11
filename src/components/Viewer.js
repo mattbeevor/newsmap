@@ -5,7 +5,7 @@ import Browse from "./Browse"
 import Article from "./Article"
 
 
-let Viewer = React.createClass({
+export default class Viewer extends React.Component {
     render() {
       if(this.props.tab==="browse"){
         return (
@@ -26,6 +26,4 @@ let Viewer = React.createClass({
         )
       }
     }
-  })
-
-export default Viewer
+  }

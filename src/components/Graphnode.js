@@ -1,7 +1,7 @@
 import React from 'react'
 import Nodedetail from "./Nodedetail"
 
-let Graphnode = React.createClass({
+export default class Graphnode extends React.Component {
 
     render() {  
 
@@ -21,8 +21,6 @@ let Graphnode = React.createClass({
             <Nodedetail k={k} transform={transform} status={this.props.status}  dispatch={this.props.dispatch} node={node} linkstopass={this.props.linkstopass} let nodestopass={this.props.nodestopass} hovercheck={this.props.hovercheck} hovernode={hovernode} isfetching={this.props.isfetching} firstlist={this.props.firstlist}/>         
          </g>
       );
-    },
+    }
 
-  })
-
-export default Graphnode
+  }

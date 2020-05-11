@@ -5,8 +5,7 @@ import Tabs from "./Tabs"
 import Viewer from "./Viewer"
 import TweenMax from "gsap"
 
-let Window = React.createClass({
- 
+export default class Window extends React.Component {
     
     componentWillEnter (callback) {
       let centreX=window.innerWidth/2
@@ -14,7 +13,7 @@ let Window = React.createClass({
       let windowstart=this.props.windowstart
       const el = this.container;
       TweenMax.fromTo(el, 0.3, {scale:.2, y: windowstart.y-centreY, x:windowstart.x-centreX, opacity: 0}, {scale:1, y: 0, x:0, opacity: 1, onComplete: callback});
-    },
+    }
 
     componentWillLeave (callback) {
       let centreX=window.innerWidth/2
@@ -22,7 +21,7 @@ let Window = React.createClass({
       let windowstart=this.props.windowstart
       const el = this.container;
       TweenMax.fromTo(el, 0.3, {scale:1, y: 0, opacity: 1}, {scale:.2, y: windowstart.y-centreY, x:windowstart.x-centreX, opacity: 0, onComplete: callback});
-    },
+    }
 
     render() {
       let dispatch = this.props.dispatch
@@ -76,6 +75,4 @@ let Window = React.createClass({
         </div>
       )
     }
-  })
-
-export default Window
+  }

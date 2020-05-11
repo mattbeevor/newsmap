@@ -4,8 +4,6 @@ body {
   overflow: hidden;
 }
 
-
-
 .articlereader {
 	margin-top: 3px;
 	padding: 5px;
@@ -35,8 +33,6 @@ ul li {
   cursor: pointer;
 }
 
-
-
 .searchbox{
     position: absolute;
     right: 30px;
@@ -63,7 +59,6 @@ ul li {
   margin-left: 33% !important;
   background: skyblue !important;
 }
-
 
 .article:hover ~ hr {
   margin-left: 66% !important;
@@ -101,7 +96,6 @@ ul li {
   background: lightpink !important;
 }
 
-
 hr {
   padding: 0px;
   margin: 0px;
@@ -110,8 +104,6 @@ hr {
   border: none;
   transition: .1s ease-in-out;
 }
-
-
 
 .update {
   color: #888888;
@@ -137,18 +129,16 @@ svg {
 	text-shadow: -1px 0 #FFFFFF,0 1px #FFFFFF,1px 0 #FFFFFF,0 -1px #FFFFFF;
 	text-align: center;
 	pointer-events: none;
-
 }
 
-//.link {
-//  stroke: #cccccc;
-//  stroke-opacity: .6;
-//}
+.wrapper {
+  width:470px;
+  float:left
+}
 
-.wrapper {width:470px; float:left}
-
-.wrapper:hover {background: WhiteSmoke}
-
+.wrapper:hover {
+  background: WhiteSmoke
+}
 
 .left {
 	width:134px; 

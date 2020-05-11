@@ -2,7 +2,8 @@ import React from 'react'
 
 import {reCentre, changeTab} from "../actions"
 
-let Tabs = React.createClass({
+
+export default class Tabs extends React.Component {
 
     
 
@@ -12,9 +13,18 @@ let Tabs = React.createClass({
       let browsetab=this.props.browsetab
 
 
-      function Browsetab(){dispatch(changeTab("browse",browsetab)),dispatch(reCentre())}
-      function Searchtab(){dispatch(changeTab("search",browsetab)),dispatch(reCentre())}
-      function Articletab(){dispatch(changeTab("article",browsetab))
+      function Browsetab(){
+        dispatch(changeTab("browse",browsetab));
+        dispatch(reCentre())
+      }
+
+      function Searchtab(){
+        dispatch(changeTab("search",browsetab));
+        dispatch(reCentre())
+      }
+
+      function Articletab(){
+        dispatch(changeTab("article",browsetab))
       }
 
       let background="coral"
@@ -65,9 +75,10 @@ let Tabs = React.createClass({
           <hr style={hrStyle} />
         </ul>
         </div>
+      
       let articletab=this.props.articletab
       if(articletab===false){
-        aStyle.width="50%",
+        aStyle.width="50%"
         hrStyle.width="50%"
         hrStyle.marginLeft="0%"
         if(displaytab==="search"){
@@ -94,8 +105,6 @@ let Tabs = React.createClass({
           {listitems}
         </div>
       )
-    },
+    }
+}
 
-  })
-
-export default Tabs

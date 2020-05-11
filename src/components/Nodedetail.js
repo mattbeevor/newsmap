@@ -2,7 +2,8 @@ import React from 'react'
 import {firstClicked,changeTab,selectNode,openWindow, clickCircle,pauseAnimation,hoverNode,stopHover} from "../actions"
 
 
-let Nodedetail = React.createClass({
+export default class Nodedetail extends React.Component {
+
 
     shouldComponentUpdate(){
       if(this.props.hovernode.id===this.props.node.id||this.props.status==="nodestoadd"){
@@ -10,7 +11,7 @@ let Nodedetail = React.createClass({
       }else{
         return false
       }
-    },
+    }
 
     render() {
       let radius=55
@@ -64,8 +65,12 @@ let Nodedetail = React.createClass({
         }
       }
 
-      function hoverFunction(){dispatch(hoverNode(node))}
-      function unhoverFunction(){dispatch(stopHover())}
+      function hoverFunction(){
+        dispatch(hoverNode(node))
+      }
+      function unhoverFunction(){
+        dispatch(stopHover())
+      }
 
       let imagelink=node.thumbnail.replace("http:","https:")
       this.image=null
@@ -99,8 +104,6 @@ let Nodedetail = React.createClass({
               </foreignObject>
             </g>
       );
-    },
+    }
 
-  })
-
-export default Nodedetail
+  }

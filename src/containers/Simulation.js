@@ -1,11 +1,10 @@
 import React from 'react'
 import {forceSimulation, forceLink, forceCollide} from "d3-force";
-import {timer} from "d3";
 import {updateAnimation, runningSimulation,dragApplied} from "../actions"
 import{ store } from "../index";
 import Graph from '../components/Graph'
 
-let Simulation = React.createClass({
+export default class Simulation extends React.Component {
   
 
   componentWillMount(){
@@ -14,11 +13,11 @@ let Simulation = React.createClass({
     let nodes=[]
     let links=[]
     let force=forceSimulation(nodes)
-            .force('collide', forceCollide(radius+45))
-            .force("link", forceLink(links).id(function(d){return d.id}))
-            .velocityDecay([.9])
-            .alphaTarget(0)
-            .on("tick", step);
+      .force('collide', forceCollide(radius+45))
+      .force("link", forceLink(links).id(function(d){return d.id}))
+      .velocityDecay([.9])
+      .alphaTarget(0)
+      .on("tick", step);
 
     function step(){
       let state=store.getState()
@@ -43,7 +42,7 @@ let Simulation = React.createClass({
       }
     };
       
-  },
+  }
 
   render(){
 
@@ -52,7 +51,5 @@ let Simulation = React.createClass({
       </Graph>
     )
 
-  },
-})
-
-export default Simulation
+  }
+}

@@ -3,7 +3,7 @@ import {selectArticle,closeWindow, reCentre} from "../actions"
 import Result from "./Result"
 
 
-let Browse = React.createClass({
+export default class Browse extends React.Component {
 
     shouldComponentUpdate(){
       let tab="this"
@@ -13,7 +13,7 @@ let Browse = React.createClass({
       }else{
         return false
       }
-    },
+    }
 
     render() {
       let tab=this.props.browsetab
@@ -64,8 +64,6 @@ let Browse = React.createClass({
       return (
         <div className="reader">{articlelist}</div>
       )
-    },
+    }
 
-  })
-
-export default Browse
+  }

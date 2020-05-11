@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Window from "../components/Window"
 import Simulation from "./Simulation"
@@ -6,18 +6,14 @@ import {closeWindow, playAnimation, rK} from "../actions"
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import TransitionGroup from 'react-addons-transition-group'
 
-
-
-
-let App = React.createClass({
-
-
+class App extends React.Component {
+ 
   componentWillMount(){
     let dispatch=this.props.dispatch
     dispatch(rK())
-  },
+  }
 
-  render() {
+  render(){
 
     let dispatch=this.props.dispatch
 
@@ -60,7 +56,7 @@ let App = React.createClass({
       </div>
     )
   }
-})
+}
 
 const mapStateToProps = state => {
   let update = state.animationUpdate
