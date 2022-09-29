@@ -11,7 +11,7 @@
     "@types/d3-force": "^1.2.1",
     "circular-json": "^0.5.9",
     "create-react-class": "^15.6.3",
-    "d3": "^4.7.4",
+    "d3": "^7.6.1",
     "d3-force": "^1.2.1",
     "firebase": "3.9.0",
     "gsap": "1.19.1",
